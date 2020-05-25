@@ -40,7 +40,7 @@ void	ls_dir(t_dirs **folder, int flags)
 			ls_print(direc->dirname, flags);
 		else 
 			dir_errors(errno, direc->dirname);
-			
+
 		direc = direc->next;
 	}
 }
@@ -61,4 +61,13 @@ t_dirs	*ls_arg(int ac, char **av, t_dirs **dirs, int *flags)
 		i++;
 	}
 	return (*dirs);
+}
+
+void		ft_ls(t_dirs *stream, int flags)
+{
+	if (stream != NULL)
+		ls_dir(&stream, flags);
+	else
+		ls_print(".", flags);
+	free_dir(&stream);
 }

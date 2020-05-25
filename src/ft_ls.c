@@ -7,10 +7,7 @@ int			main(int ac, char **av)
 
 	dirs = NULL;
 	dirs = ls_arg(ac, av, &dirs, &flags);
-	if (dirs != NULL)
-		ls_dir(&dirs, flags);
-	else
-		ls_print(".", flags);
-	free_dir(&dirs);
+	ft_ls(dirs, flags);
+
 	return (0);
 }

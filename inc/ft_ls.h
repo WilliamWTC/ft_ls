@@ -50,6 +50,7 @@ void				print_file();
 
 char 				filetype();
 char 				*rec_att();
+
 int 				can_recurse();
 void				ls_recur();
 void				free_rec();
@@ -58,5 +59,7 @@ void				invalid_flag();
 void				invalid_folder();
 void				invalid_perm();
 void				dir_errors();
+
+void				ft_ls();
 
 #endif
