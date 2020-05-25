@@ -6,19 +6,16 @@ static void		read_folder(t_file **file, DIR *dr, char *folder, int flags)
 	struct dirent	*de;
 	struct stat		stats;
 
-	if (!(de = readdir(dr)))
-		invalid_folder(folder);
-	else
-		while ((de = readdir(dr)))
-		{
-			path(folder, de->d_name, &drpath);
-			stat(drpath, &stats);
-			ft_strdel(&drpath);
-			if (!(flags & LS_A) && de->d_name[0] == '.')
-				continue;
-			else
-				*file = add_file(*file, de->d_name, stats);
-		}
+	while ((de = readdir(dr)))
+	{
+		path(folder, de->d_name, &drpath);
+		stat(drpath, &stats);
+		ft_strdel(&drpath);
+		if (!(flags & LS_A) && de->d_name[0] == '.')
+			continue;
+		else
+			*file = add_file(*file, de->d_name, stats);
+	}
 }
 
 void			build_path(t_file **file, char *folder, int flags)
@@ -32,6 +29,8 @@ void			build_path(t_file **file, char *folder, int flags)
 		stat(folder, &stats);
 		*file = add_file(*file, folder, stats);
 	}
+	else if (errno == 2)
+		invalid_folder(folder);
 	else if (errno == 13)
 		invalid_perm(folder);
 	else
