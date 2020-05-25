@@ -4,7 +4,7 @@ void	ls_flags(int *flags, char *str)
 {
 	while (*str != '\0')
 	{
-		if (*str == 'a' || *str == 'R' || *str == 'r' || *str == 't')
+		if (ft_strchr("aRrt", *str))
 		{
 			if (*str == 'a')
 				*flags |= LS_A;
