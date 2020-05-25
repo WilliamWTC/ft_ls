@@ -12,7 +12,7 @@ SRC_NAME =  ft_ls.c \
 			new_file.c \
 			sort.c \
 			recursive.c\
-			rec_supp.c \
+			supp.c \
 			read.c \
 			errors.c \
 			new_dir.c \

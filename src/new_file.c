@@ -15,40 +15,16 @@ t_file		*new_file(char *file_name, struct stat stats)
 t_file		*add_file(t_file *file, char *file_name, struct stat stats)
 {
 	t_file	*tmp;
-	t_file	*new;
 
-	tmp = file;
-	new = new_file(file_name, stats);
 	if (!file)
-		return (new);
+		file = new_file(file_name, stats);
 	else
 	{
+		tmp = file;
 		while (tmp->next)
 			tmp = tmp->next;
-		tmp->next = new;
+
+		tmp->next = new_file(file_name, stats);
 	}
 	return (file);
 }
-
- static void	free_file(t_file *file)
- {
-	ft_strdel(&file->d);
-    ft_strdel(&file->name);
-    file->time = 0;
-    file->next = NULL;
- 	free(file);
- }
-
- void		free_list(t_file **file)
- {
- 	t_file	*tmp;
- 	t_file	*next;
-
- 	tmp = *file;
- 	while (tmp)
- 	{
- 		next = tmp->next;
- 		free_file(tmp);
- 		tmp = next;
- 	}
- }

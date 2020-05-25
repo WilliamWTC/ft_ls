@@ -15,7 +15,7 @@ t_dirs	*add_dir(char *path, t_dirs *dirs)
 	t_dirs	*lst;
 	t_dirs	*tmp;
 
-	if (dirs == NULL)
+	if (!dirs)
 		dirs = new_dir(path);
 	else
 	{
@@ -28,19 +28,4 @@ t_dirs	*add_dir(char *path, t_dirs *dirs)
 		tmp->next = new_dir(path);
 	}
 	return (dirs);
-}
-
-void	free_dir(t_dirs **dirs)
-{
-	t_dirs	*lst;
-	t_dirs	*next;
-
-	lst = *dirs;
-	while (lst)
-	{
-		next = lst->next;
-		ft_strdel(&lst->dirname);
-		free(lst);
-		lst = next;
-	}
 }
