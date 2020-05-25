@@ -38,10 +38,9 @@ void	ls_dir(t_dirs **folder, int flags)
 		}
 		else if (errno == 20)
 			ls_print(direc->dirname, flags);
-		else if (errno == 13)
-			invalid_perm(direc->dirname);
-		else if (errno == 2)
-			invalid_folder(direc->dirname);
+		else 
+			dir_errors(errno, direc->dirname);
+			
 		direc = direc->next;
 	}
 }

@@ -57,5 +57,6 @@ void				free_rec();
 void				invalid_flag();
 void				invalid_folder();
 void				invalid_perm();
+void				dir_errors();
 
 #endif

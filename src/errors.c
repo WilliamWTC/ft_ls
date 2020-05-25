@@ -22,3 +22,12 @@ void	invalid_perm(char *str)
 	ft_putendl(str);
 	errno = 0;
 }
+
+void	dir_errors(int error, char *str)
+{
+	error = errno;
+	if (error == 2)
+		invalid_folder(str);
+	if (error == 13)
+		invalid_perm(str);
+}

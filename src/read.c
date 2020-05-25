@@ -29,10 +29,8 @@ void			build_path(t_file **file, char *folder, int flags)
 		stat(folder, &stats);
 		*file = add_file(*file, folder, stats);
 	}
-	else if (errno == 2)
-		invalid_folder(folder);
-	else if (errno == 13)
-		invalid_perm(folder);
+	else if (errno == 2 || errno == 13)
+		dir_errors(errno, folder);
 	else
 	{
 		read_folder(file, dr, folder, flags);
