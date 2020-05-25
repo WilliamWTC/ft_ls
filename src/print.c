@@ -54,7 +54,7 @@ t_dirs	*ls_arg(int ac, char **av, t_dirs **dirs, int *flags)
 		if (av[i][0] == '-')
 		{
 			av[i]++;
-			ls_flags(flags, av[i]);
+			ls_flags(av[i], flags);
 		}
 		else
 			*dirs = add_dir(av[i], *dirs);

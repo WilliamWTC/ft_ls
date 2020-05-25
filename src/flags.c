@@ -1,6 +1,6 @@
 #include "ft_ls.h"
 
-void	ls_flags(int *flags, char *str)
+void	ls_flags(char *str, int *flags)
 {
 	while (*str != '\0')
 	{
