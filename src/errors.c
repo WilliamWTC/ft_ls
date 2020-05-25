@@ -12,15 +12,13 @@ void	invalid_folder(char *str)
 {
 	ft_putstr("ft_ls: cannot access '");
 	ft_putstr(str);
-	ft_putstr("' : No such file or directory");
-	ft_putstr("\n");
+	ft_putendl("' : No such file or directory");
 	errno = 0;
 }
 
 void	invalid_perm(char *str)
 {
 	ft_putstr("Permission denied for : ");
-	ft_putstr(str);
-	ft_putchar('\n');
+	ft_putendl(str);
 	errno = 0;
 }
