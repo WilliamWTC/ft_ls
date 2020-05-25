@@ -23,7 +23,6 @@ t_file		*add_file(t_file *file, char *file_name, struct stat stats)
 		tmp = file;
 		while (tmp->next)
 			tmp = tmp->next;
-
 		tmp->next = new_file(file_name, stats);
 	}
 	return (file);

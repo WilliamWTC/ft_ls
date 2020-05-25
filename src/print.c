@@ -2,7 +2,7 @@
 
 void	print_file(t_file *file)
 {
- 	while (file != NULL)
+ 	while (file)
  	{
  		ft_putendl(file->name);
  		file = file->next;
@@ -25,22 +25,24 @@ void	ls_print(char *folder, int flags)
 void	ls_dir(t_dirs **folder, int flags)
 {
 	DIR		*dr;
+	t_dirs	*direc;
 
-	while (*folder)
+	direc = *folder;
+	while (direc)
 	{
-		dr = opendir((*folder)->dirname);
+		dr = opendir(direc->dirname);
 		if (errno == 0)
 		{
-			ls_print((*folder)->dirname, flags);
+			ls_print(direc->dirname, flags);
 			closedir(dr);
 		}
 		else if (errno == 20)
-			ls_print((*folder)->dirname, flags);
+			ls_print(direc->dirname, flags);
 		else if (errno == 13)
-			invalid_perm((*folder)->dirname);
+			invalid_perm(direc->dirname);
 		else if (errno == 2)
-			invalid_folder((*folder)->dirname);
-		*folder = (*folder)->next;
+			invalid_folder(direc->dirname);
+		direc = direc->next;
 	}
 }
 
