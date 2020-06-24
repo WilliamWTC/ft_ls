@@ -12,5 +12,3 @@ The flags I have created (so far) :
 ```-R``` - list subdirectories recursively.
 
 ```-t``` - sorts files according to last modification time.
-
-referance: github.com/ryanhutchinson/ft_ls
