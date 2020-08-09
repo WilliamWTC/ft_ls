@@ -13,6 +13,13 @@ The flags I have created (so far) :
 
 ```-t``` - sorts files according to last modification time.
 
+## WeThinkCode :
+
+**Mandatory:** 95/100  
+**Bonus:** 0/25
+  
+**Total:** 95/100
+
 ## referances
 
 * https://github.com/RyanHutchinson/ft_ls
