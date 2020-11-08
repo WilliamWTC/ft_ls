@@ -22,4 +22,4 @@ The flags I have created (so far) :
 
 ## referances
 
-* https://github.com/RyanHutchinson/ft_ls
+-- [Ryan Hutchinson](https://github.com/RyanHutchinson/ft_ls)
